@@ -3,6 +3,7 @@ import { Layout } from 'antd';
 import Sidebar from './components/Sidebar/Sidebar';
 import LiveTraffic from './components/LiveTraffic/LiveTraffic';
 import AmbulanceTracker from './components/LiveTraffic/AmbulanceTracker';
+import Heatmap from './components/LiveTraffic/Heatmap';
 const { Header, Content } = Layout;
 
 class App extends Component {
@@ -14,7 +15,7 @@ class App extends Component {
           <Header style={{padding: '0 30px', color: 'white', fontSize: 20, fontWeight: 100}}>Dashboard</Header>
           <Content style={{ padding: 30 }}>
             <div style={styles.card}>
-            <AmbulanceTracker />
+            <LiveTraffic />
             </div>
           </Content>
         </Layout>

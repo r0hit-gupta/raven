@@ -42,7 +42,7 @@ export default class LiveTraffic extends Component {
     this.state = { lat: 30.718368, lng: 76.811935 };
   }
   componentDidMount() {
-    // this.interval = setInterval(() => this.move(), 200);
+    this.interval = setInterval(() => this.move(), 200);
   }
   move(){
     this.setState((prevState) => ({
