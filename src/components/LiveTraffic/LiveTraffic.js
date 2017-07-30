@@ -5,7 +5,7 @@ import Trafficlight from './Trafficlight';
 export default class LiveTraffic extends Component {
   static defaultProps = {
     center: { lat: 30.717916, lng: 76.812376 },
-    zoom: 17
+    zoom: 18
   };
   constructor(){
     super()
