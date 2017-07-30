@@ -56,6 +56,27 @@ function initMap() {
     data: getPoints(),
     map: map
   });
+
+  fetch('https://cors-anywhere.herokuapp.com/bnmmail.hol.es/get.php')
+  .then(res => res.json())
+  .then(res => {
+    for(let i of res.reverse()){
+      let img = `<img src='http://bnmmail.hol.es/uploads/${i.url}' width="300px"/>`;
+      var infowindow = new google.maps.InfoWindow({
+              content: img
+            });
+
+            var marker = new google.maps.Marker({
+              position: { lat: parseFloat(i.lat), lng: parseFloat(i.lng) },
+              map: map,
+              title: i.des
+            });
+            marker.addListener('click', function() {
+              infowindow.open(map, marker);
+            });
+    }
+  })
+
 }
 
 function getPoints() {

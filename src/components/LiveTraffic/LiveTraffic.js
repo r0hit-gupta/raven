@@ -9,7 +9,9 @@ export default class LiveTraffic extends Component {
   };
   constructor(){
     super()
+    this.countdown = this.countdown.bind(this);
     this.state = {
+      countdown: 0,
       l1: 'red',
       l2: 'red',
       l3: 'red',
@@ -30,6 +32,22 @@ export default class LiveTraffic extends Component {
 
   sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  countdown(time){
+    let timer = setInterval(() => {
+      if(this.state.countdown > 0){
+        this.setState({
+          countdown: this.state.countdown - 1
+        })
+      }
+      else {
+        clearInterval(timer)
+        this.setState({
+        countdown: time
+      })
+    }
+    }, 1000);
   }
 
   componentDidMount(){
@@ -84,6 +102,7 @@ export default class LiveTraffic extends Component {
           if (y > totalTime / 3) {
             y = totalTime / 3;
           }
+          // this.countdown(Math.floor(y));
           let x = 0;
           console.log(`Lane ${m + 1} is green`);
           this.setState({
@@ -121,7 +140,7 @@ export default class LiveTraffic extends Component {
           key: 'AIzaSyAtx_lIJ0GsFLKtlaCsMyo7K7Rq8IeTCx4'
         }}
       >
-        {/*<Lights lat={30.718368} lng={76.811935} /> */}
+      <div> {this.state.countdown} </div>
         <Trafficlight color={this.state.l1} count={this.state.c1} lat={30.71855} lng={76.811848} />
         <Trafficlight color={this.state.l2} count={this.state.c2} lat={30.718525} lng={76.812838} />
         <Trafficlight color={this.state.l3} count={this.state.c3} lat={30.717693} lng={76.812767} />
