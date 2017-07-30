@@ -36,9 +36,13 @@ export default class LiveTraffic extends Component {
     const rand = (num) => Math.floor(Math.random() * num) + 1;
     const change = async () => {
       const lanes = 4;
-      let n = 4;
+      let n = 4, m = 0, flag = 1;
+      let burst_time;
       while (1) {
-        let burst_time = [rand(20), rand(20), rand(20), rand(20)];
+        if(flag){
+          burst_time = [rand(20), rand(20), rand(20), rand(20)];
+          flag = !flag
+        }
         for(let k = 0; k < 4; k++){
           this.setState({
             [`c${k+1}`]: burst_time[k]
@@ -70,37 +74,38 @@ export default class LiveTraffic extends Component {
           console.log(laneTime[i]);
         }
 
-        for (let i = 0; i < n; i++) {
-          let y = laneTime[i];
+        if(m>3){
+          m -= 4;
+        }
+          let y = laneTime[m];
           if (y < totalTime / 10) {
             y = totalTime / 10;
           }
-          if (y > totalTime / 2) {
-            y = totalTime / 2;
+          if (y > totalTime / 3) {
+            y = totalTime / 3;
           }
           let x = 0;
-          console.log(`Lane ${i + 1} is green`);
+          console.log(`Lane ${m + 1} is green`);
           this.setState({
-            [`l${i+1}`]: 'green'
+            [`l${m+1}`]: 'green'
           });
-          while (burst_time[i] != 0 && x <= y) {
+          while (burst_time[m] != 0 && x <= y) {
             await this.sleep(3000);
-            changeTraffic(i);
+            changeTraffic(m);
             x += 3;
-            // changeTraffic(i);
           }
-            console.log(`Lane ${i + 1} is Yellow`);
+            console.log(`Lane ${m + 1} is Yellow`);
             this.setState({
-              [`l${i+1}`]: 'yellow'
+              [`l${m+1}`]: 'yellow'
             });
             console.log(this.state)
 
             await this.sleep(3000);
-            console.log(`Lane ${i + 1} is Red`);
+            console.log(`Lane ${m + 1} is Red`);
             this.setState({
-              [`l${i+1}`]: 'red'
+              [`l${m+1}`]: 'red'
             });
-        }
+            m +=1
       }
     }
     change();
