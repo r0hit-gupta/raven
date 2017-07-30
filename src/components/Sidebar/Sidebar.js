@@ -21,7 +21,7 @@ export default class Sidebar extends Component {
           <span>Accident Mapping</span></Link>
           </Menu.Item>
           <Menu.Item key="3">
-          <Link to="/corridor"><img src='https://image.flaticon.com/icons/svg/149/149057.svg' style={styles.icon} />
+          <Link to="/corridor"><img src='https://image.flaticon.com/icons/svg/149/149058.svg' style={styles.icon} />
           <span>Green Corridor</span></Link>
           </Menu.Item>
           <Menu.Item key="4">
