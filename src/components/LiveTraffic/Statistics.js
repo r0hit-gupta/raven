@@ -1,10 +1,10 @@
 import React from 'react';
 
-export default class Heatmap extends React.Component {
+export default class Statistics extends React.Component {
   render() {
     return (
       <div>
-        <iframe src={'/heatmap.html'} style={styles.map} />
+        <iframe src={'/stats.html'} style={styles.map} />
       </div>
     );
   }

@@ -12,21 +12,11 @@ class Lights extends Component {
     this.update = this.update.bind(this);
   }
   update = () => {
-    if(this.state.num >= 3){
-      this.setState((prevState) => ({
-        num: 0
-      }));
-    }
-    else {
-      this.setState((prevState) => ({
-        num: prevState.num + 1
-    }));
-  }
-    console.log(this.state.num)
+
   }
 
   componentDidMount(){
-    this.interval = setInterval(() => this.update(), 3000);
+    // this.interval = setInterval(() => this.update(), 3000);
   }
   componentWillUnmount() {
     clearInterval(this.interval);
