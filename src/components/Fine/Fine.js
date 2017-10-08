@@ -14,7 +14,8 @@ export default class Fine extends React.Component {
       phone: "-",
       address: "-",
       make: "-",
-      model: "-"
+      model: "-",
+      fineSent: false
     };
   }
   showDetails = () => {
@@ -28,6 +29,13 @@ export default class Fine extends React.Component {
       model: "Verna Sportz"
     });
   };
+
+  sendFine = () => {
+    this.setState({
+      fineSent: true
+    });
+  };
+
   render() {
     return (
       <div style={styles.center}>
@@ -62,7 +70,9 @@ export default class Fine extends React.Component {
             <Label>.00</Label>
           </Input>
           <br />
-          <Button primary>SEND CHALLAN</Button></div>)
+          {this.state.fineSent && <Button color="green"><Icon name="check" /> FINE SENT</Button> }
+          {!this.state.fineSent && <Button color="blue" onClick={() => this.sendFine()}>SEND FINE</Button> }
+          </div>)
           }
 
         </div>
