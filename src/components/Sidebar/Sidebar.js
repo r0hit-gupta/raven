@@ -20,16 +20,16 @@ export default class Sidebar extends Component {
           <Link to="/heatmap"><img src='https://image.flaticon.com/icons/svg/266/266690.svg' style={styles.icon} />
           <span>Accident Mapping</span></Link>
           </Menu.Item>
-          <Menu.Item key="3">
+          {/* <Menu.Item key="3">
           <Link to="/corridor"><img src='https://image.flaticon.com/icons/svg/149/149058.svg' style={styles.icon} />
           <span>Green Corridor</span></Link>
-          </Menu.Item>
+          </Menu.Item> */}
           <Menu.Item key="4">
           <Link to="/stats"><img src='https://image.flaticon.com/icons/svg/138/138351.svg' style={styles.icon} />
           <span>Statistics</span></Link>
           </Menu.Item>
           <Menu.Item key="5">
-          <Link to="/fine"><img src='https://image.flaticon.com/icons/svg/138/138351.svg' style={styles.icon} />
+          <Link to="/fine"><img src='https://image.flaticon.com/icons/svg/584/584035.svg' style={styles.icon} />
           <span>Fine</span></Link>
           </Menu.Item>
         </Menu>
