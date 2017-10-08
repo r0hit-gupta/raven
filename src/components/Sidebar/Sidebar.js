@@ -28,6 +28,10 @@ export default class Sidebar extends Component {
           <Link to="/stats"><img src='https://image.flaticon.com/icons/svg/138/138351.svg' style={styles.icon} />
           <span>Statistics</span></Link>
           </Menu.Item>
+          <Menu.Item key="5">
+          <Link to="/fine"><img src='https://image.flaticon.com/icons/svg/138/138351.svg' style={styles.icon} />
+          <span>Fine</span></Link>
+          </Menu.Item>
         </Menu>
       </Layout.Sider>
     );

@@ -8,6 +8,7 @@ import Simulate from './components/LiveTraffic/Simulate';
 import AmbulanceTracker from './components/LiveTraffic/AmbulanceTracker';
 import Heatmap from './components/LiveTraffic/Heatmap';
 import Statistics from './components/LiveTraffic/Statistics';
+import Fine from './components/Fine/Fine';
 
 const { Header, Content } = Layout;
 
@@ -34,6 +35,7 @@ class App extends Component {
                 <Route path="/corridor" component={AmbulanceTracker} />
                 <Route path="/stats" component={Statistics} />
                 <Route path="/sim" component={Simulate} />
+                <Route path="/fine" component={Fine} />
                 <Route path="/" component={LiveTraffic} />
               </Switch>
             </div>
